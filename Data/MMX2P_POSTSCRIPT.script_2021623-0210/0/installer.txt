@@ -1,0 +1,14 @@
+{
+  "Type": "script",
+  "Scripts": [
+    {
+      "Path": "mod.sh",
+      "Length": 1335,
+      "CheckSumSize": 524288,
+      "CheckSum": [
+        "722fd474c65560a2b840770659bde79712d82962"
+      ]
+    }
+  ],
+  "Created-By": "mnfc 0.39"
+}
