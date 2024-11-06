@@ -32,17 +32,12 @@ Please let me know of additional vehicles to add to this list.
      - rename `install.sh` to `_install.sh`
      - rename `_uninstall.sh` to `uninstall.sh`
 ## Vehicle installation
- - launch red engineering menu
-     - long press MENU button or two finger touch in top right of screen
- - insert SD card into vehicle
- - select "Update" using the dial
- - select the SD card
- - wait for "Read manifest files"
- - scroll to the bottom and "Start update"
- - wait for the update to run
- - scroll to the bottom and "Resume"
+ - start vehicle
+ - insert SD card
+ - update installs automatically: MH2p will reboot a few times and show some red engineering menu pages
+ - when update is done installing, a prompt will say "Please remove update media"
+ - remove SD card
  - MH2p will reboot into normal mode with mods installed/uninstalled
- - remove SD card from vehicle
  - on PC, can check SD card `/Logs` folder which has logs from each mod being installed
  ## Mod development
  - each mod should be self-contained in its own folder `/Mods/[modname]`

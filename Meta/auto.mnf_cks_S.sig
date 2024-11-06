@@ -1,6 +1,6 @@
 [Header]
 HeaderVersion = "1"
-SignedFile = "main.mnf.cks"
+SignedFile = "auto.mnf.cks"
 FDS-Ident = "1406"
 TypeOfSignature = "Serie"
 Date = "2024-11-02T12:12:12.075+02:00"
