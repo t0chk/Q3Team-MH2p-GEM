@@ -6,8 +6,7 @@ Free ModKit that allows for modifying the MH2p unit used in some Volkswagen AG v
  - See the LICENSE file in the project root for full license text.
  - NOT FOR COMMERCIAL USE
 ## Compatible vehicles
-Please let me know of additional vehicles to add to this list.
- - 19-23 Porsche Macan
+Check [MH2p SD ModKit site](https://lawpaul.github.io/MH2p_SD_ModKit_Site/) for an updated list of vehicles.
 ## Necessary hardware
  - SD card
  - Computer that can connect to SD card
