@@ -26,6 +26,10 @@ if [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh0" ]]; then
     cp -f $srcPath/Storage/01/servicemgrmibhigh /mnt/app/eso/bin/
     chmod 755 /mnt/app/eso/bin/servicemgrmibhigh
     echo "enable GEM [OK]"
+else 
+    echo "GEM already enabled. updating..."
+    cp -f $srcPath/Storage/01/servicemgrmibhigh /mnt/app/eso/bin/
+    chmod 755 /mnt/app/eso/bin/servicemgrmibhigh
 fi
 
 echo "Unmounting /mnt/app..."
