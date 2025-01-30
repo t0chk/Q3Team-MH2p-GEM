@@ -1,12 +1,24 @@
 #!/bin/sh
 
-/eso/bin/servicemgrmibhigh0 &
-
 IPL_BASE_DIR="${0%/*}/.."
 cd "$IPL_BASE_DIR"
 IPL_BASE_DIR="`pwd`"
 
 "$IPL_BASE_DIR/bin/slogprint" "Running servicemgrmibhigh.sh"
+
+# Запуск servicemgrmibhigh99 или servicemgrmibhigh0
+if [[ -e /eso/bin/servicemgrmibhigh99 ]]; then
+    /eso/bin/servicemgrmibhigh99 &
+elif [[ -e /eso/bin/servicemgrmibhigh0 ]]; then
+    /eso/bin/servicemgrmibhigh0 &
+else
+    "$IPL_BASE_DIR/bin/slogprint" "ERROR: Neither servicemgrmibhigh99 nor servicemgrmibhigh0 found. Restore."
+	[[ ! -e "/mnt/ota" ]] &&  mount -t qnx6 /dev/mnanda0t177.16 /mnt/ota
+	"$IPL_BASE_DIR/bin/slogprint" "Mounting /mnt/ota ..."
+	cp -f /mnt/ota/servicemgrmibhigh /eso/bin/servicemgrmibhigh99
+    /eso/bin/servicemgrmibhigh99 &
+fi
+
 
 if [[ -e /mnt/ota/challenge.pub ]]; then
 	"$IPL_BASE_DIR/bin/slogprint" "Link challenge.pub"

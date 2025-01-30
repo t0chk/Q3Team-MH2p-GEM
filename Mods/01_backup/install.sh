@@ -48,6 +48,7 @@ cp -rf /mnt/persist_new $dstPath/backup/
 [[ -e /mnt/app/eso/bin/apps/componentprotection ]] && cp -f /mnt/app/eso/bin/apps/componentprotection $dstPath/backup/
 [[ -e /mnt/app/eso/bin/servicemgrmibhigh ]] && cp -f /mnt/app/eso/bin/servicemgrmibhigh $dstPath/backup/
 [[ -e /mnt/app/eso/bin/servicemgrmibhigh0 ]] && cp -f /mnt/app/eso/bin/servicemgrmibhigh0 $dstPath/backup/
+[[ -e /mnt/app/eso/bin/servicemgrmibhigh99 ]] && cp -f /mnt/app/eso/bin/servicemgrmibhigh99 $dstPath/backup/
 
 [[ ! -e "/mnt/swup" ]] && mount -t qnx6 /dev/mnanda0t177.2 /mnt/swup
 cp -f /mnt/swup/etc/passwd $dstPath/backup/
