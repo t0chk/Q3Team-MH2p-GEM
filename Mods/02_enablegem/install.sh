@@ -4,13 +4,44 @@
 # Функция для проверки, является ли файл ELF-бинарным
 is_elf_binary() {
     local file=$1
+
+    # Проверяем, что файл существует
+    if [[ ! -f "$file" ]]; then
+		echo "[ELFB] File does not exist: $file"
+        return 1  # Файл не существует
+    fi
+
     # Читаем первые 4 байта файла
     first_bytes=$(dd if="$file" bs=4 count=1 2>/dev/null)
+
+    # Если файл меньше 4 байт, dd вернет пустую строку
+    if [[ -z "$first_bytes" ]]; then
+		echo "[ELFB] File is too small: $file"
+        return 1  # Файл слишком мал
+    fi
+
     # Преобразуем байты в шестнадцатеричный формат
-    hex_bytes=$(printf "%02x%02x%02x%02x" "'${first_bytes:0:1}" "'${first_bytes:1:1}" "'${first_bytes:2:1}" "'${first_bytes:3:1}")
+    hex_bytes=""
+    for i in 0 1 2 3; do
+        # Извлекаем каждый байт по очереди
+        byte=$(echo -n "$first_bytes" | cut -b $((i+1)))
+        # Преобразуем символ в ASCII-код, затем в шестнадцатеричный формат
+        hex_byte=$(printf "%02x" "'$byte")
+        # Добавляем к результату
+        hex_bytes="$hex_bytes$hex_byte"
+    done
+
     # Проверяем, совпадают ли первые байты с ELF-магическим числом
-    [[ $hex_bytes == "7f454c46" ]]
+   if [[ "$hex_bytes" == "7f454c46" ]]; then
+        echo "[ELFB] File $file is an ELF binary file"
+        return 0
+    else
+        echo "[ELFB] File $file is not an ELF binary file"
+        return 1
+    fi
 }
+
+echo "Starting installation of q3team patch..."
 
 if [[ -e /fs/sda0 ]]; then
 	srcPath=/fs/sda0
@@ -24,12 +55,12 @@ elif [[ -e /fs/usb0_0 ]]; then
 	srcPath=/fs/usb0_0
 	echo "Use USB1 drive as source"
 else
-	echo "Error: cannot find any SD card/USB drive!"
+	echo "[ERR] cannot find any SD card/USB drive!"
 	exit 1
 fi
 
 if [[ ! -e "$srcPath/Storage/01/servicemgrmibhigh" ]]; then
-	echo "Error: servicemgrmibhigh not found in [SRC]."
+	echo "[ERR] servicemgrmibhigh not found in [SRC]"
 	exit 1
 fi
 
@@ -52,14 +83,14 @@ case true in
             chmod 755 "/mnt/app/eso/bin/servicemgrmibhigh"
             echo "Copied new servicemgrmibhigh from [SRC]"
         else
-            echo "ERROR: servicemgrmibhigh99 is not a binary file. Aborting."
+            echo "[ERR] servicemgrmibhigh99 is not a binary file. Aborting."
             exit 1
         fi
         ;;
 
     # Кейс 2: servicemgrmibhigh0 отсутствует, servicemgrmibhigh99 отсутствует, servicemgrmibhigh НЕ бинарный
     $([[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh0" ]] && [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]] && ! is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh"))
-        echo "ERROR: servicemgrmibhigh is not a binary file, and no backup found. Aborting."
+        echo "[ERR] servicemgrmibhigh is not a binary file, and no backup found. Aborting."
         exit 1
         ;;
 
@@ -83,11 +114,12 @@ case true in
 
     # Кейс 5: Неожиданная ситуация
     *)
-        echo "ERROR: Unexpected state. Aborting."
+        echo "[ERR] Unexpected state. Aborting."
         exit 1
         ;;
 esac
 
+echo "Copying additional files..."
 cp -f $srcPath/Storage/01/challenge.pub /mnt/ota/
 cp -f $srcPath/Storage/01/doas.conf /mnt/ota/
 cp -f /mnt/app/eso/bin/servicemgrmibhigh99 /mnt/ota/servicemgrmibhigh

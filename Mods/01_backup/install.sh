@@ -57,3 +57,19 @@ cp -f /mnt/swup/etc/shadow $dstPath/backup/
 
 [[ ! -e "/mnt/system" ]] && mount -o noatime,nosuid,noexec -r /dev/fs0p1 /mnt/system
 s="Done.";echo $s;echo $s >> $dstPath/backup/device_info.txt
+
+# Работа с remgem
+search_path="/mnt/app/eso/bundles"
+
+# Ищем файл, начинающийся с "arc.remgem_"
+file_to_copy=$(find "$search_path" -type f -name "arc.remgem_*" 2>/dev/null)
+
+# Проверяем, найден ли файл
+if [[ -n "$file_to_copy" ]]; then
+    echo "found remgem: $file_to_copy"
+    # Копируем файл в /backup
+    cp -f "$file_to_copy" $dstPath/backup/
+else
+    echo "[ERROR] remgem not found in $search_path"
+    exit 1
+fi
