@@ -2,37 +2,25 @@
 # Copyright (c) 2025 https://t.me/tochk
 
 # Функция для проверки, является ли файл ELF-бинарным
+# Функция для проверки, является ли файл ELF-бинарным
 is_elf_binary() {
     local file=$1
-
     # Проверяем, что файл существует
     if [[ ! -f "$file" ]]; then
-		echo "[ELFB] File does not exist: $file"
+        echo "[ELFB] File does not exist: $file"
         return 1  # Файл не существует
     fi
 
-    # Читаем первые 4 байта файла
-    first_bytes=$(dd if="$file" bs=4 count=1 2>/dev/null)
-
+    # Читаем байты 2, 3 и 4 файла (пропуская первый байт)
+    elf_check=$(dd if="$file" bs=1 skip=1 count=3 2>/dev/null)
     # Если файл меньше 4 байт, dd вернет пустую строку
-    if [[ -z "$first_bytes" ]]; then
-		echo "[ELFB] File is too small: $file"
+    if [[ -z "$elf_check" ]]; then
+        echo "[ELFB] File is too small: $file"
         return 1  # Файл слишком мал
     fi
 
-    # Преобразуем байты в шестнадцатеричный формат
-    hex_bytes=""
-    for i in 0 1 2 3; do
-        # Извлекаем каждый байт по очереди
-        byte=$(echo -n "$first_bytes" | cut -b $((i+1)))
-        # Преобразуем символ в ASCII-код, затем в шестнадцатеричный формат
-        hex_byte=$(printf "%02x" "'$byte")
-        # Добавляем к результату
-        hex_bytes="$hex_bytes$hex_byte"
-    done
-
-    # Проверяем, совпадают ли первые байты с ELF-магическим числом
-   if [[ "$hex_bytes" == "7f454c46" ]]; then
+    # Проверяем, совпадают ли байты 2, 3 и 4 с ELF
+    if [[ "$elf_check" == "ELF" ]]; then
         echo "[ELFB] File $file is an ELF binary file"
         return 0
     else
@@ -60,7 +48,7 @@ else
 fi
 
 if [[ ! -e "$srcPath/Storage/01/servicemgrmibhigh" ]]; then
-	echo "[ERR] servicemgrmibhigh not found in [SRC]"
+	echo "[ERR] servicemgrmibhigh not found in [$srcPath]"
 	exit 1
 fi
 
@@ -72,59 +60,65 @@ mount -uw /mnt/app
 echo "Mounting /mnt/ota as dest..."
 mount -uw /mnt/ota
 
-
 # Основная логика
-case true in
-    # Кейс 1: servicemgrmibhigh0 отсутствует, но есть servicemgrmibhigh99
-    $([[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh0" ]] && [[ -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]]))
-        if is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh99"; then
-            echo "Patch already installed. servicemgrmibhigh99 is a binary file. Updating servicemgrmibhigh from srcPath..."
-            cp -f "$srcPath/Storage/01/servicemgrmibhigh" "/mnt/app/eso/bin/"
-            chmod 755 "/mnt/app/eso/bin/servicemgrmibhigh"
-            echo "Copied new servicemgrmibhigh from [SRC]"
-        else
-            echo "[ERR] servicemgrmibhigh99 is not a binary file. Aborting."
+if is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh"; then
+    # Кейс 1: servicemgrmibhigh — бинарный файл (чистая система)
+    echo "Clean system detected. Installing patch..."
+    echo "Copied new servicemgrmibhigh from [$srcPath]"
+    cp -f "/mnt/app/eso/bin/servicemgrmibhigh" "/mnt/app/eso/bin/servicemgrmibhigh99"
+    if [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]]; then
+        echo "[ERR] servicemgrmibhigh99 not found after cp. Aborting."
+        exit 1
+    fi
+    cp -f "$srcPath/Storage/01/servicemgrmibhigh" "/mnt/app/eso/bin/"
+
+else
+    # Кейс 2: servicemgrmibhigh — не бинарный файл (патч уже установлен)
+    if is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh0"; then
+        # Подкейс 2.1: servicemgrmibhigh0 — бинарный (старый патч)
+        echo "[Toolbox] patch detected ([servicemgrmibhigh0] is a binary file)."
+        cp -f "/mnt/app/eso/bin/servicemgrmibhigh0" "/mnt/app/eso/bin/servicemgrmibhigh99"
+        if [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]]; then
+            echo "[ERR] servicemgrmibhigh99 not found after cp. Aborting."
             exit 1
         fi
-        ;;
-
-    # Кейс 2: servicemgrmibhigh0 отсутствует, servicemgrmibhigh99 отсутствует, servicemgrmibhigh НЕ бинарный
-    $([[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh0" ]] && [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]] && ! is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh"))
-        echo "[ERR] servicemgrmibhigh is not a binary file, and no backup found. Aborting."
-        exit 1
-        ;;
-
-    # Кейс 3: servicemgrmibhigh0 присутствует и бинарный, servicemgrmibhigh текстовый
-    $([[ -e "/mnt/app/eso/bin/servicemgrmibhigh0" ]] && is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh0" && ! is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh"))
-        echo "Third-party patch detected. Renaming servicemgrmibhigh0 to servicemgrmibhigh99..."
-        cp -f "/mnt/app/eso/bin/servicemgrmibhigh0" "/mnt/app/eso/bin/servicemgrmibhigh99"
         cp -f "$srcPath/Storage/01/servicemgrmibhigh" "/mnt/app/eso/bin/"
-        chmod 755 "/mnt/app/eso/bin/servicemgrmibhigh"
-        echo "Copied new servicemgrmibhigh from [SRC]"
-        ;;
-
-    # Кейс 4: servicemgrmibhigh0 отсутствует, servicemgrmibhigh99 отсутствует, servicemgrmibhigh бинарный
-    $([[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh0" ]] && [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]] && is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh"))
-        echo "Clean system detected. Installing patch..."
-		cp -f "/mnt/app/eso/bin/servicemgrmibhigh" "/mnt/app/eso/bin/servicemgrmibhigh99"
+    elif is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh99"; then
+        # Подкейс 2.2: servicemgrmibhigh99 — бинарный (новый патч)
+        echo "[Q3Team] patch detected ([servicemgrmibhigh99] is a binary file)."
         cp -f "$srcPath/Storage/01/servicemgrmibhigh" "/mnt/app/eso/bin/"
-        chmod 755 "/mnt/app/eso/bin/servicemgrmibhigh"
-        echo "Copied new servicemgrmibhigh from [SRC]"
-        ;;
-
-    # Кейс 5: Неожиданная ситуация
-    *)
-        echo "[ERR] Unexpected state. Aborting."
+    else
+        # Подкейс 2.3: ни servicemgrmibhigh0, ни servicemgrmibhigh99 не являются бинарными
+        echo "[ERR] Unknown patch state. Aborting."
         exit 1
-        ;;
-esac
+    fi
+fi
 
+# Копирование дополнительных файлов
 echo "Copying additional files..."
+
 cp -f $srcPath/Storage/01/challenge.pub /mnt/ota/
-cp -f $srcPath/Storage/01/doas.conf /mnt/ota/
+cp -f $srcPath/Storage/02/doas.conf /mnt/ota/
 cp -f /mnt/app/eso/bin/servicemgrmibhigh99 /mnt/ota/servicemgrmibhigh
 
+# Работа с remgem
+# Ищем файл, начинающийся с "arc.remgem_"
+search_path="/mnt/app/eso/bundles"
+remgem_path=$(find "$search_path" -type f -name "arc.remgem_*" 2>/dev/null)
+
+# Проверяем, найден ли файл
+if [[ -n "$remgem_path" ]]; then
+    echo "found remgem: $remgem_path"
+    # Копируем файл из 02 в найденный путь
+    cp -f "$srcPath/Storage/02/arc.remgem.jar" "$remgem_path"
+else
+    echo "[ERR] remgem not found in $search_path"
+fi
+
+# Завершение работы
 echo "Unmounting /mnt/app..."
 sync
 [[ -e "/mnt/app" ]] && umount -f /mnt/app
+
+echo "Done."
 
