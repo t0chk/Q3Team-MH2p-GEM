@@ -1,7 +1,8 @@
 #!/bin/ksh
-# Copyright (c) 2025 https://t.me/tochk
+# Copyright (c) 2025 https://t.me/tochk https://t.me/q3f3chat
 
-# Функция для проверки, является ли файл ELF-бинарным
+echo "Starting of [enablegem] script..."
+
 # Функция для проверки, является ли файл ELF-бинарным
 is_elf_binary() {
     local file=$1
@@ -29,26 +30,24 @@ is_elf_binary() {
     fi
 }
 
-echo "Starting installation of q3team patch..."
-
 if [[ -e /fs/sda0 ]]; then
-	srcPath=/fs/sda0
+	modPath=/fs/sda0
 	echo "Use SD1 card as source"
 elif [[ -e /fs/sdb0 ]]; then
 	mount -uw /fs/sdb0
-	srcPath=/fs/sdb0
+	modPath=/fs/sdb0
 	echo "Use SD2 card as source"
 elif [[ -e /fs/usb0_0 ]]; then
 	mount -uw /fs/usb0_0
-	srcPath=/fs/usb0_0
+	modPath=/fs/usb0_0
 	echo "Use USB1 drive as source"
 else
 	echo "[ERR] cannot find any SD card/USB drive!"
 	exit 1
 fi
 
-if [[ ! -e "$srcPath/Storage/01/servicemgrmibhigh" ]]; then
-	echo "[ERR] servicemgrmibhigh not found in [$srcPath]"
+if [[ ! -e "$modPath/Storage/enablegem/servicemgrmibhigh" ]]; then
+	echo "[ERR] servicemgrmibhigh not found in [$modPath]"
 	exit 1
 fi
 
@@ -64,29 +63,32 @@ mount -uw /mnt/ota
 if is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh"; then
     # Кейс 1: servicemgrmibhigh — бинарный файл (чистая система)
     echo "Clean system detected. Installing patch..."
-    echo "Copied new servicemgrmibhigh from [$srcPath]"
-    cp -f "/mnt/app/eso/bin/servicemgrmibhigh" "/mnt/app/eso/bin/servicemgrmibhigh99"
+    echo "Copied new servicemgrmibhigh from [$modPath]"
+    cp -fV "/mnt/app/eso/bin/servicemgrmibhigh" "/mnt/app/eso/bin/servicemgrmibhigh99"
     if [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]]; then
         echo "[ERR] servicemgrmibhigh99 not found after cp. Aborting."
         exit 1
     fi
-    cp -f "$srcPath/Storage/01/servicemgrmibhigh" "/mnt/app/eso/bin/"
+    cp -fV "$modPath/Storage/enablegem/servicemgrmibhigh" "/mnt/app/eso/bin/"
+    chmod 755 "/mnt/app/eso/bin/servicemgrmibhigh"
 
 else
     # Кейс 2: servicemgrmibhigh — не бинарный файл (патч уже установлен)
     if is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh0"; then
         # Подкейс 2.1: servicemgrmibhigh0 — бинарный (старый патч)
         echo "[Toolbox] patch detected ([servicemgrmibhigh0] is a binary file)."
-        cp -f "/mnt/app/eso/bin/servicemgrmibhigh0" "/mnt/app/eso/bin/servicemgrmibhigh99"
+        cp -fV "/mnt/app/eso/bin/servicemgrmibhigh0" "/mnt/app/eso/bin/servicemgrmibhigh99"
         if [[ ! -e "/mnt/app/eso/bin/servicemgrmibhigh99" ]]; then
             echo "[ERR] servicemgrmibhigh99 not found after cp. Aborting."
             exit 1
         fi
-        cp -f "$srcPath/Storage/01/servicemgrmibhigh" "/mnt/app/eso/bin/"
+        cp -fV "$modPath/Storage/enablegem/servicemgrmibhigh" "/mnt/app/eso/bin/"
+        chmod 755 "/mnt/app/eso/bin/servicemgrmibhigh"
     elif is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh99"; then
         # Подкейс 2.2: servicemgrmibhigh99 — бинарный (новый патч)
         echo "[Q3Team] patch detected ([servicemgrmibhigh99] is a binary file)."
-        cp -f "$srcPath/Storage/01/servicemgrmibhigh" "/mnt/app/eso/bin/"
+        cp -fV "$modPath/Storage/enablegem/servicemgrmibhigh" "/mnt/app/eso/bin/"
+        chmod 755 "/mnt/app/eso/bin/servicemgrmibhigh"
     else
         # Подкейс 2.3: ни servicemgrmibhigh0, ни servicemgrmibhigh99 не являются бинарными
         echo "[ERR] Unknown patch state. Aborting."
@@ -97,28 +99,12 @@ fi
 # Копирование дополнительных файлов
 echo "Copying additional files..."
 
-cp -f $srcPath/Storage/01/challenge.pub /mnt/ota/
-cp -f $srcPath/Storage/02/doas.conf /mnt/ota/
-cp -f /mnt/app/eso/bin/servicemgrmibhigh99 /mnt/ota/servicemgrmibhigh
+cp -fV $modPath/Storage/enablegem/challenge.pub /mnt/ota/
+cp -fv $modPath/Storage/enablegem/doas.conf /mnt/ota/
+cp -fV /mnt/app/eso/bin/servicemgrmibhigh99 /mnt/ota/servicemgrmibhigh
 
-# Работа с remgem
-# Ищем файл, начинающийся с "arc.remgem_"
-search_path="/mnt/app/eso/bundles"
-remgem_path=$(find "$search_path" -type f -name "arc.remgem_*" 2>/dev/null)
-
-# Проверяем, найден ли файл
-if [[ -n "$remgem_path" ]]; then
-    echo "found remgem: $remgem_path"
-    # Копируем файл из 02 в найденный путь
-    cp -f "$srcPath/Storage/02/arc.remgem.jar" "$remgem_path"
-else
-    echo "[ERR] remgem not found in $search_path"
-fi
-
-# Завершение работы
-echo "Unmounting /mnt/app..."
 sync
-[[ -e "/mnt/app" ]] && umount -f /mnt/app
+sync
 
 echo "Done."
 
