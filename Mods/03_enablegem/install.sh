@@ -51,6 +51,11 @@ if [[ ! -e "$modPath/Storage/enablegem/servicemgrmibhigh" ]]; then
 	exit 1
 fi
 
+# Проверка наличия папки backup
+[[ ! -e $modPath/backup ]] && mkdir $modPath/backup
+[[ ! -e $modPath/backup ]] && echo "Error: cannot create $modPath/backup folder!" && exit 1
+
+# Монтирование точек
 [[ ! -e "/mnt/app" ]] && mount -t qnx6 /dev/mnanda0t177.1 /mnt/app
 echo "Mounting /mnt/app as dest..."
 mount -uw /mnt/app
@@ -59,7 +64,15 @@ mount -uw /mnt/app
 echo "Mounting /mnt/ota as dest..."
 mount -uw /mnt/ota
 
-# Основная логика
+echo "Mounting /mnt/swup in r/w mode..."
+[[ ! -e "/mnt/swup" ]] && mount -t qnx6 /dev/mnanda0t177.2 /mnt/swup
+mount -uw /mnt/swup/
+
+echo "Mounting /mnt/persist_new in r/w mode..."
+[[ ! -e "/mnt/persist_new" ]] && mount -t qnx6 /dev/mnanda0t177.5 /mnt/persist_new
+mount -uw /mnt/persist_new
+
+# Основная логика установки патча
 if is_elf_binary "/mnt/app/eso/bin/servicemgrmibhigh"; then
     # Кейс 1: servicemgrmibhigh — бинарный файл (чистая система)
     echo "Clean system detected. Installing patch..."
@@ -95,6 +108,27 @@ else
         exit 1
     fi
 fi
+
+# Копирование FEC
+echo "Backup fecmanager..."
+[[ -e /mnt/app/eso/bin/apps/fecmanager ]] && cp -fV /mnt/app/eso/bin/apps/fecmanager $modPath/backup/
+
+#1 Скопировать fecmanager в /mnt/app/eso/bin/apps/ с заменой
+echo "Replacing /mnt/app/eso/bin/apps/fecmanager"
+cp -fV $modPath/Storage/installfecs/fecmanager /mnt/app/eso/bin/apps/fecmanager
+chmod 755 /mnt/app/eso/bin/apps/fecmanager
+
+#2 Скопировать fecmanager в /mnt/swup/eso/bin/apps/ с заменой
+echo "Replacing /mnt/swup/eso/bin/apps/fecmanager"
+cp -Vf $modPath/Storage/installfecs/fecmanager /mnt/swup/eso/bin/apps/fecmanager
+chmod 755 /mnt/swup/eso/bin/apps/fecmanager
+
+#3 Скопирповать ExceptionList.txt в /mnt/persist_new/fec/ExceptionList.txt с заменой
+echo "Copy /mnt/persist_new/fec/ExceptionList.txt"
+cp -Vf $modPath/Storage/installfecs/ExceptionList.txt /mnt/persist_new/fec/ExceptionList.txt
+
+#4 FoD=SwaP
+echo "Script set FoD=SwaP flag by [enablegem] mod"
 
 # Копирование дополнительных файлов
 echo "Copying additional files..."
