@@ -1,5 +1,12 @@
 # MH2p SD ModKit
 Free ModKit that allows for modifying the MH2p unit used in some Volkswagen AG vehicles using only an SD card.
+# Q3 Team Notes
+This is a fork of the original MH2p SD ModKit by LawPaul. The original README is below. This fork is intended to be used by the Q3 team to develop and test mods for the Q3. The original README is below.
+[Q3 Team Telegram](https://t.me/q3f3chat)
+Best regards,
+ [Oleg Go](https://t.me/tochk)
+ [Ник Лисон](https://t.me/bfbumamdihm)
+ [Aleksandr Smirnov](https://t.me/smirrrnov) 
 ## License
  - This file is part of MH2p_SD_ModKit, licensed under CC BY-NC-SA 4.0.
  - https://creativecommons.org/licenses/by-nc-sa/4.0/
