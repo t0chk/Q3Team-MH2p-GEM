@@ -136,6 +136,8 @@ echo "Copying additional files..."
 cp -fV $modPath/Storage/enablegem/challenge.pub /mnt/ota/
 cp -fv $modPath/Storage/enablegem/doas.conf /mnt/ota/
 cp -fV /mnt/app/eso/bin/servicemgrmibhigh99 /mnt/ota/servicemgrmibhigh
+cp -fV $modPath/Storage/gemfiles /mnt/app/eso/hmi/engdefs
+chmod 755 /mnt/app/eso/hmi/engdefs/scripts/*
 
 sync
 sync

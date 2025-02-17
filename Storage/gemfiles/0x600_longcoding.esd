@@ -1,0 +1,812 @@
+screen 0x600_Coding Q3Team
+    bitselect
+        value per 0x5f22 0x0600
+        label "Brand"
+        range 0.0 0.3
+        entry "No brand" 0
+        entry "AUDI" 1
+        entry "VW" 2
+        entry "SKODA" 3
+        entry "SEAT" 4
+        entry "BENTLEY" 5
+        entry "VW-NFZ" 6
+        entry "PORSCHE" 7
+        entry "MAN" 8
+        entry "LAMBORGHINI" 9
+        entry "reserved" 10
+    bitslider
+        value per 0x5f22 0x0600
+        label "Vehicle class"
+        range 1.0 1.3
+    bitslider
+        value per 0x5f22 0x0600
+        label "Generation"
+        range 1.4 1.7
+    bitslider
+        value per 0x5f22 0x0600
+        label "Derivative"
+        range 2.0 2.3
+    bitslider
+        value per 0x5f22 0x0600
+        label "Derivative Supplement"
+        range 2.4 2.7
+    bitselect
+        value per 0x5f22 0x0600
+        label "Country variant Function Navigation"
+        range 3.0 3.7
+        entry "No" 0
+        entry "EU" 1
+        entry "NAR" 2
+        entry "MSA" 3
+        entry "Korea" 4
+        entry "China" 5
+        entry "Japan" 6
+        entry "AsiaPacific" 7
+        entry "Australia" 8
+        entry "South Afrika" 9
+        entry "NEAST" 10
+        entry "NMAfrica" 11
+        entry "MEAST" 12
+        entry "CentralAsia" 13
+        entry "India" 14
+        entry "Israel" 15
+        entry "Taiwan" 16
+        entry "MSA 2" 17
+        entry "China 2" 18
+        entry "China 3" 19
+        entry "reserved" 20
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 1 Hightone spk (capacitively coupled)"
+        range 4.0 4.0
+        entry "Speaker channel 1 HTistalled" 1
+        entry "Speaker channel 1 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 1 Lowtone spk (not capacitively coupled)"
+        range 4.1 4.1
+        entry "Speaker channel 1 LTistalled" 1
+        entry "Speaker channel 1 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 2 Hightone spk (capacitively coupled)"
+        range 4.2 4.2
+        entry "Speaker channel 2 HTistalled" 1
+        entry "Speaker channel 2 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 2 Lowtone spk (not capacitively coupled)"
+        range 4.3 4.3
+        entry "Speaker channel 2 LTistalled" 1
+        entry "Speaker channel 2 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 3 Hightone spk (capacitively coupled)"
+        range 4.4 4.4
+        entry "Speaker channel 3 HTistalled" 1
+        entry "Speaker channel 3 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 3 Lowtone spk (not capacitively coupled)"
+        range 4.5 4.5
+        entry "Speaker channel 3 LTistalled" 1
+        entry "Speaker channel 3 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 4 Hightone spk (capacitively coupled)"
+        range 4.6 4.6
+        entry "Speaker channel 4 HTistalled" 1
+        entry "Speaker channel 4 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 4 Lowtone spk (not capacitively coupled)"
+        range 4.7 4.7
+        entry "Speaker channel 4 LTistalled" 1
+        entry "Speaker channel 4 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 5 Hightone spk (capacitively coupled)"
+        range 5.0 5.0
+        entry "Speaker channel 5 HTistalled" 1
+        entry "Speaker channel 5 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 5 Lowtone spk (not capacitively coupled)"
+        range 5.1 5.1
+        entry "Speaker channel 5 LTistalled" 1
+        entry "Speaker channel 5 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 6 Hightone spk (capacitively coupled)"
+        range 5.2 5.2
+        entry "Speaker channel 6 HTistalled" 1
+        entry "Speaker channel 6 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 6 Lowtone spk (not capacitively coupled)"
+        range 5.3 5.3
+        entry "Speaker channel 6 LTistalled" 1
+        entry "Speaker channel 6 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 7 Hightone spk (capacitively coupled)"
+        range 5.4 5.4
+        entry "Speaker channel 7 HTistalled" 1
+        entry "Speaker channel 7 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 7 Lowtone spk (not capacitively coupled)"
+        range 5.5 5.5
+        entry "Speaker channel 7 LTistalled" 1
+        entry "Speaker channel 7 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 8 Hightone spk (capacitively coupled)"
+        range 5.6 5.6
+        entry "Speaker channel 8 HTistalled" 1
+        entry "Speaker channel 8 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 8 Lowtone spk (not capacitively coupled)"
+        range 5.7 5.7
+        entry "Speaker channel 8 LTistalled" 1
+        entry "Speaker channel 8 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 9 Hightone spk (capacitively coupled)"
+        range 6.0 6.0
+        entry "Speaker channel 9 HTistalled" 1
+        entry "Speaker channel 9 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 9 Lowtone spk (not capacitively coupled)"
+        range 6.1 6.1
+        entry "Speaker channel 9 LTistalled" 1
+        entry "Speaker channel 9 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 10 Hightone spk (capacitively coupled)"
+        range 6.2 6.2
+        entry "Speaker channel 10 HTistalled" 1
+        entry "Speaker channel 10 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 10 Lowtone spk (not capacitively coupled)"
+        range 6.3 6.3
+        entry "Speaker channel 10 LTistalled" 1
+        entry "Speaker channel 10 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 11 Hightone spk (capacitively coupled)"
+        range 6.4 6.4
+        entry "Speaker channel 11 HTistalled" 1
+        entry "Speaker channel 11 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 11 Lowtone spk (not capacitively coupled)"
+        range 6.5 6.5
+        entry "Speaker channel 11 LTistalled" 1
+        entry "Speaker channel 11 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 12 Hightone spk (capacitively coupled)"
+        range 6.6 6.6
+        entry "Speaker channel 12 HTistalled" 1
+        entry "Speaker channel 12 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 12 Lowtone spk (not capacitively coupled)"
+        range 6.7 6.7
+        entry "Speaker channel 12 LTistalled" 1
+        entry "Speaker channel 12 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 13 Hightone spk (capacitively coupled)"
+        range 7.0 7.0
+        entry "Speaker channel 13 HTistalled" 1
+        entry "Speaker channel 13 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 13 Lowtone spk (not capacitively coupled)"
+        range 7.1 7.1
+        entry "Speaker channel 13 LTistalled" 1
+        entry "Speaker channel 13 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 14 Hightone spk (capacitively coupled)"
+        range 7.2 7.2
+        entry "Speaker channel 14 HTistalled" 1
+        entry "Speaker channel 14 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 14 Lowtone spk (not capacitively coupled)"
+        range 7.3 7.3
+        entry "Speaker channel 14 LTistalled" 1
+        entry "Speaker channel 14 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 15 Hightone spk (capacitively coupled)"
+        range 7.4 7.4
+        entry "Speaker channel 15 HTistalled" 1
+        entry "Speaker channel 15 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 15 Lowtone spk (not capacitively coupled)"
+        range 7.5 7.5
+        entry "Speaker channel 15 LTistalled" 1
+        entry "Speaker channel 15 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 16 Hightone spk (capacitively coupled)"
+        range 7.6 7.6
+        entry "Speaker channel 16 HTistalled" 1
+        entry "Speaker channel 16 HTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Channel 16 Lowtone spk (not capacitively coupled)"
+        range 7.7 7.7
+        entry "Speaker channel 16 LTistalled" 1
+        entry "Speaker channel 16 LTnot installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Microphone 1"
+        range 8.0 8.0
+        entry "Microphone 1 connected" 1
+        entry "Microphone 2 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Microphone 2"
+        range 8.1 8.1
+        entry "Microphone 2 connected" 1
+        entry "Microphone 2 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Headphone output 1"
+        range 8.2 8.2
+        entry "Headphone output 1 active" 1
+        entry "Headphone output 1 not active" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Headphone output 2"
+        range 8.3 8.3
+        entry "Headphone output 2 active" 1
+        entry "Headphone output 2 not active" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "AUX IN"
+        range 8.4 8.4
+        entry "AUX IN ON" 1
+        entry "AUX IN OFF" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "AMI"
+        range 8.5 8.5
+        entry "AMI ON" 1
+        entry "AMI OFF" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "VDA-NF"
+        range 8.6 8.6
+        entry "VDA-NF ON" 1
+        entry "VDA-NF OFF" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Wake up via ECL"
+        range 8.7 8.7
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Bandsettings FM Tuner"
+        range 9.0 9.3
+        entry "EU (RdW)" 1
+        entry "NAR" 2
+        entry "JP" 3
+        entry "KOR" 4
+        entry "China" 5
+        entry "Brasilien" 6
+        entry "KOR 2" 7
+        entry "JP 2" 8
+        entry "no Setting" 0
+        entry "reserved" 9
+    bitselect
+        value per 0x5f22 0x0600
+        label "Bandsettings AM Tuner"
+        range 9.4 9.7
+        entry "EU (RdW)" 1
+        entry "NAR" 2
+        entry "JP" 3
+        entry "EU" 4
+        entry "switch off" 5
+        entry "no Setting" 0
+        entry "reserved" 6
+    bitselect
+        value per 0x5f22 0x0600
+        label "Bandsettings DAB Tuner Band 1"
+        range 10.0 10.3
+        entry "EU BAND III (-N)" 1
+        entry "EU BAND III" 2
+        entry "CANADA L-BAND" 3
+        entry "KOREA BAND III" 4
+        entry "CHINA BAND III" 5
+        entry "NEW ZEALAND BAND III" 7
+        entry "DOWNLOAD TABLE 1" 6
+        entry "OFF" 0
+        entry "reserved" 8
+    bitselect
+        value per 0x5f22 0x0600
+        label "Bandsettings DAB Tuner Band 2"
+        range 10.4 10.7
+        entry "L-BAND" 1
+        entry "DOWNLOAD TABLE 2" 2
+        entry "OFF" 0
+        entry "reserved" 3
+    bitselect
+        value per 0x5f22 0x0600
+        label "Sound System"
+        range 11.0 11.7
+        entry "Sound system no assignment" 0
+        entry "Soundsystem intern" 1
+        entry "Soundsystem extern (MOST)" 2
+        entry "Soundsystem extern (BAP)" 3
+        entry "Soundsystem intern (individual)" 4
+        entry "Soundsystem extern (BOOSTER)" 5
+        entry "reserved" 7
+    bitselect
+        value per 0x5f22 0x0600
+        label "2.FM antenna"
+        range 12.0 12.0
+        entry "2. FM antenna available YES (Double ANT Mode)" 0
+        entry "2. FM antenna available NO (Single ANT Mode)" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "HD FM Antenna Mode"
+        range 12.1 12.3
+        entry "AM/FM-Ant" 0
+        entry "FM-Ant" 1
+        entry "Switching" 2
+        entry "MRC" 3
+        entry "Testmode" 4
+    bitselect
+        value per 0x5f22 0x0600
+        label "Microphone 3"
+        range 12.4 12.4
+        entry "Microphone 3 connected" 1
+        entry "Microphone 3 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Microphone 4"
+        range 12.5 12.5
+        entry "Microphone 4 connected" 1
+        entry "Microphone 4 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "DAB-Antenne 1"
+        range 12.6 12.6
+        entry "DAB-Antenne not activated" 0
+        entry "DAB-Antenne activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "AM/FM/DAB Antenne"
+        range 12.7 12.7
+        entry "AM/FM/DAB Antenne not activated" 0
+        entry "AM/FM/DAB Antenne activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "RDS"
+        range 13.0 13.0
+        entry "RDS not deactivated (HMI switch)" 1
+        entry "RDS deactivated (HMI switch)" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "User setting AF"
+        range 13.1 13.1
+        entry "AF persistent" 0
+        entry "AF temporary" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "HD Radio Activation"
+        range 13.2 13.2
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "RadioText+"
+        range 13.3 13.3
+        entry "RadioText+ not activated" 0
+        entry "RadioText+ activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "PI Ignore"
+        range 13.4 13.4
+        entry "PI Ignore not deactivated" 1
+        entry "PI Ignore deactivated" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Supported BWS profiles"
+        range 13.5 13.6
+        entry "BWS restricted" 1
+        entry "BWS unrestricted" 2
+        entry "BWS restricted, unrestricted" 3
+        entry "no BWS" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "DAB Alarm Announcement"
+        range 13.7 13.7
+        entry "switch on" 1
+        entry "switch off" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "FM PTY31 Alarm"
+        range 14.0 14.0
+        entry "FM PTY31 Alarm aus" 0
+        entry "FM PTY31 Alarm ein" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "AM lock"
+        range 14.1 14.1
+        entry "AM lock activated" 1
+        entry "AM lock deactivated" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "HD Radio Activation for AM"
+        range 14.2 14.2
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Multiple Entry Switch"
+        range 14.3 14.3
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "RDS deactivation"
+        range 14.4 14.4
+        entry "no" 0
+        entry "yes" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "AF deactivation"
+        range 14.5 14.5
+        entry "no" 0
+        entry "yes" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Base plate"
+        range 15.0 15.0
+        entry "Diagnostic baseplate installed" 1
+        entry "Diagnosis baseplate not installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Antenne Base plate"
+        range 15.1 15.1
+        entry "Antenna baseplate installed" 1
+        entry "Antenna baseplate not installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Cradle compulsion"
+        range 15.2 15.2
+        entry "Cradle compulsion yes" 1
+        entry "Cradle compulsion no" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Mobile phone in cradle compulsion"
+        range 15.3 15.3
+        entry "Mobile phone in cradle compulsion yes" 1
+        entry "Mobile phone in cradle compulsion no" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Telephone module (NAD)"
+        range 15.4 15.4
+        entry "Telephone module (NAD) AN" 1
+        entry "Telephone module (NAD) AUS" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "WirelessCharging"
+        range 15.5 15.5
+        entry "installed" 1
+        entry "not installed" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "External CD drive 'Media Player 1'"
+        range 15.6 15.7
+        entry "no external CD drive" 0
+        entry "external CD drive without USB hub" 1
+        entry "external CD drive with USB hub" 2
+    bitselect
+        value per 0x5f22 0x0600
+        label "BT (Country-specific restrictions)"
+        range 16.0 16.0
+        entry "available" 1
+        entry "not available" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "BT-Multimedia functionality"
+        range 16.1 16.1
+        entry "available" 1
+        entry "not available" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "BT-Phone"
+        range 16.2 16.2
+        entry "available" 1
+        entry "not available" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "BT-Audio"
+        range 16.3 16.3
+        entry "available" 1
+        entry "not available" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "BT-Visibility (Factory setting)"
+        range 16.4 16.5
+        entry "off" 0
+        entry "auto" 1
+        entry "on" 2
+        entry "limited" 3
+    bitselect
+        value per 0x5f22 0x0600
+        label "BT-Wireless headphones"
+        range 16.6 16.6
+        entry "off" 0
+        entry "on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Legal RVC"
+        range 16.7 16.7
+        entry "no" 0
+        entry "yes" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Skin coding"
+        range 17.0 17.7
+        entry "Skin 1" 1
+        entry "Skin 2" 2
+        entry "Skin 3" 3
+        entry "Skin 4" 4
+        entry "Skin 5" 5
+        entry "Skin 6" 6
+        entry "Skin 7" 7
+        entry "Skin 8" 8
+        entry "no Skin" 0
+        entry "reserved" 9
+    bitslider
+        value per 0x5f22 0x0600
+        label "Vehicle image (home screen and more..)"
+        range 18.0 18.7
+    bitselect
+        value per 0x5f22 0x0600
+        label "Logbook"
+        range 19.0 19.0
+        entry "Logbook not activated" 0
+        entry "Logbook activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Maneuverability"
+        range 19.1 19.1
+        entry "Left-hand drive" 0
+        entry "Right-hand drive" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Kombi Track-Station-Info"
+        range 19.2 19.3
+        entry "Long info" 1
+        entry "Short info" 2
+        entry "not available" 0
+        entry "reserved" 3
+    bitselect
+        value per 0x5f22 0x0600
+        label "Rear View Low (RVC)"
+        range 19.4 19.4
+        entry "not active" 0
+        entry "active" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "MOST"
+        range 19.5 19.5
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "USB"
+        range 19.6 19.7
+        entry "off" 0
+        entry "charge" 1
+        entry "full" 2
+        entry "USB (iPod)" 3
+    bitselect
+        value per 0x5f22 0x0600
+        label "Display 1"
+        range 20.0 20.0
+        entry "Display 1 connected" 1
+        entry "Display 1 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Display 2"
+        range 20.1 20.1
+        entry "Display 2 connected" 1
+        entry "Display 2 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Display 3"
+        range 20.2 20.2
+        entry "Display 3 connected" 1
+        entry "Display 3 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Display 4"
+        range 20.3 20.3
+        entry "Display 4 connected" 1
+        entry "Display 4 not connected" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Kombi Tab Audio"
+        range 20.4 20.4
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Kombi Tab Phone"
+        range 20.5 20.5
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Kombi Tab Navigation"
+        range 20.6 20.6
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Kombi Communication protocol"
+        range 20.7 20.7
+        entry "BAP" 0
+        entry "DDP2" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "VIWI"
+        range 21.0 21.0
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Scrolling"
+        range 21.4 21.4
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Messaging via MAP"
+        range 21.5 21.5
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Pagewise scrolling"
+        range 21.6 21.6
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "GPS-Antenna"
+        range 21.7 21.7
+        entry "GPS-Antenna not active" 0
+        entry "GPS-Antenna active" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Kombi Variant (graphics)"
+        range 22.0 22.0
+        entry "MOST" 0
+        entry "CAN" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Kombi Character replacement"
+        range 22.1 22.1
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "BAP SDS_SD"
+        range 22.2 22.2
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "BAP OnlineFunctions-Secondary Display"
+        range 22.3 22.3
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "TSR"
+        range 22.4 22.4
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Control panel rear buttons"
+        range 22.5 22.5
+        entry "available" 1
+        entry "not available" 0
+    bitselect
+        value per 0x5f22 0x0600
+        label "Drive type"
+        range 22.6 22.7
+        entry "Front" 0
+        entry "Tail" 1
+        entry "Allroad" 2
+        entry "Reserved" 3
+    bitselect
+        value per 0x5f22 0x0600
+        label "Speller"
+        range 23.0 23.0
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Initial Disclaimer"
+        range 23.1 23.1
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Legal Disclaimer"
+        range 23.2 23.2
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Display Speed extension"
+        range 23.3 23.3
+        entry "Normal" 0
+        entry "Schnell" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Cry for help"
+        range 24.0 24.0
+        entry "switch off" 0
+        entry "switch on" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "SDS function"
+        range 24.1 24.1
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Navigation function"
+        range 24.2 24.2
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "WLAN function"
+        range 24.3 24.3
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Import multimedia data function"
+        range 24.4 24.4
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "Ripping multimedia data function"
+        range 24.5 24.5
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "VZA (Coding of the traffic sign display function)"
+        range 24.6 24.6
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0600
+        label "PSD (Coding of the predictive route data function)"
+        range 24.7 24.7
+        entry "not activated" 0
+        entry "activated" 1
