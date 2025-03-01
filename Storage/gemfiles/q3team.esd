@@ -1,28 +1,28 @@
 screen Q3Team Main
-    bitselect
-        value per 0x5f22 0x22AD
-        label "0x22AD|9.0 9.7 SDS Region Flag"
-        range 9.0 9.7
-        entry "keine Region" 0
-        entry "NAR_EU" 1
-        entry "NAR_NAR" 2
-        entry "NAR_ROW_SOUTHAMERICA" 3
-        entry "NAR_ASIA_KOREA" 4
-        entry "NAR_ASIA_CHINA" 5
-        entry "NAR_ASIA_JAPAN" 6
-        entry "NAR_ROW_ASIA" 7
-        entry "NAR_ROW_AUSTRALIA" 8
-        entry "NAR_ROW_SOUTHAFRICA" 9
-        entry "NAR_ROW_NEAREAST" 10
-        entry "Reserved_do_not_use" 11
-        entry "NAR_ROW_MIDDLEEAST" 12
-        entry "Reserved_do_not_use" 13
-        entry "NAR_ROW_INDIA" 14
-        entry "NAR_ROW_ISRAEL" 15
-        entry "NAR_ASIA_TAIWAN" 16
-        entry "NAR_ROW_CHILE" 17
-        entry "Reserved_do_not_use" 18
-        entry "Reserved_do_not_use" 19
+bitselect
+   value per 0x5f22 0x22AD
+   label "0x22AD|9.0 9.7 SDS Region Flag"
+   range 9.0 9.7
+   entry "keine Region" 0
+   entry "NAR_EU" 1
+   entry "NAR_NAR" 2
+   entry "NAR_ROW_SOUTHAMERICA" 3
+   entry "NAR_ASIA_KOREA" 4
+   entry "NAR_ASIA_CHINA" 5
+   entry "NAR_ASIA_JAPAN" 6
+   entry "NAR_ROW_ASIA" 7
+   entry "NAR_ROW_AUSTRALIA" 8
+   entry "NAR_ROW_SOUTHAFRICA" 9
+   entry "NAR_ROW_NEAREAST" 10
+   entry "Reserved_do_not_use" 11
+   entry "NAR_ROW_MIDDLEEAST" 12
+   entry "Reserved_do_not_use" 13
+   entry "NAR_ROW_INDIA" 14
+   entry "NAR_ROW_ISRAEL" 15
+   entry "NAR_ASIA_TAIWAN" 16
+   entry "NAR_ROW_CHILE" 17
+   entry "Reserved_do_not_use" 18
+   entry "Reserved_do_not_use" 19
 
 script
    value    sys 1 0x0100 "/scripts/iamsoxorry.sh"
