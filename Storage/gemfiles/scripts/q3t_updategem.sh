@@ -31,7 +31,7 @@ fi
 cp -fv $modPath/Storage/enablegem/doas.conf /mnt/ota/
 chmod 444 /mnt/ota/doas.conf
 
-cp -fRV $modPath/Storage/gemfiles /mnt/app/eso/hmi/engdefs
+cp -fRV $modPath/Storage/gemfiles/. /mnt/app/eso/hmi/engdefs
 chmod 755 /mnt/app/eso/hmi/engdefs/scripts/*
 
 sync
