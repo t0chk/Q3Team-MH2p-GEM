@@ -28,14 +28,6 @@ bitselect
    entry "NAR_ROW_CHILE" 17
    entry "Reserved_do_not_use" 18
    entry "Reserved_do_not_use" 19
-
-screen "0x0B2E Confirmation of the installation change" Adjustments
-    bitselect
-        value per 0x5f22 0x0B2E
-        label "Confirmation of the installation change"
-        range 0.0 1.7
-        entry "No application software" 0
-        entry "2Byte key" 1
         
 script
    value    sys 1 0x0100 "/scripts/q3t_updategem.sh"
