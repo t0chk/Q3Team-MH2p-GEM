@@ -141,6 +141,10 @@ cp -fRV $modPath/Storage/gemfiles/. /mnt/app/eso/hmi/engdefs
 chmod 755 /mnt/app/eso/hmi/engdefs/scripts/*
 chmod 444 /mnt/ota/doas.conf
 
+[[ ! -e /mnt/ota/gem_jars ]] && mkdir /mnt/ota/gem_jars
+cp -fRV $modPath/Storage/jars/. /mnt/ota/gem_jars
+
+sync
 sync
 sync
 
