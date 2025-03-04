@@ -1,4 +1,9 @@
 screen Q3Team Main
+keyValue
+    value			String sys 0x00000000 0
+	label			"== Q3Team GEM Mod =="
+	poll			0 
+
 bitselect
    value per 0x5f22 0x22AD
    label "0x22AD|9.0 9.7 SDS Region Flag"
@@ -24,12 +29,22 @@ bitselect
    entry "Reserved_do_not_use" 18
    entry "Reserved_do_not_use" 19
 
+screen "0x0B2E Confirmation of the installation change" Adjustments
+    bitselect
+        value per 0x5f22 0x0B2E
+        label "Confirmation of the installation change"
+        range 0.0 1.7
+        entry "No application software" 0
+        entry "2Byte key" 1
+        
 script
    value    sys 1 0x0100 "/scripts/iamsoxorry.sh"
    label    "Check software version management FIX"
+
 script
    value    sys 1 0x0100 "/scripts/q3t_updategem.sh"
    label    "Update GEM from SD"
+
 script
    value    sys 1 0x0100 "/scripts/performePersReset.sh"
    label    "Require reset with persistence"
