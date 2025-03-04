@@ -1,0 +1,7 @@
+screen ImSoXORy Q3Team
+    bitselect
+        value per 0x5f22 0x0B2E
+        label "Confirmation of the installation change"
+        range 0.0 1.7
+        entry "No application software" 0
+        entry "2Byte key" 1
