@@ -40,15 +40,19 @@ screen "0x0B2E Confirmation of the installation change" Adjustments
 script
    value    sys 1 0x0100 "/scripts/q3t_updategem.sh"
    label    "Update GEM from SD"
+
 script
    value    sys 1 0x0100 "/scripts/q3t_fullscreen_cpaa.sh"
    label    "Enable\disable fullscreen CarPlay AA"
+
 script
    value    sys 1 0x0100 "/scripts/q3t_navicompass.sh"
    label    "Disable\enable compass in cockpit with active CarPlay&AA navi"
+
 script
    value    sys 1 0x0100 "/scripts/iamsoxorry.sh"
    label    "Check software version management FIX (ImSoXORy)"
+
 script
    value    sys 1 0x0100 "/scripts/performePersReset.sh"
    label    "Require reset with persistence (Reboot)"
