@@ -1,6 +1,6 @@
 screen Q3Team Main
 keyValue
-    value			String sys 0x00000000 0
+   value			String sys 0x00000000 0
 	label			"== Q3Team GEM Mod =="
 	poll			0 
 
