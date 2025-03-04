@@ -38,6 +38,10 @@ script
    label    "Enable or disable fullscreen CarPlay AA"
 
 script
+   value    sys 1 0x0100 "/scripts/q3t_fullscreen_cpaa_sb.sh"
+   label    "Enable or disable fullscreen CarPlay AA (with StatusBar)"
+
+script
    value    sys 1 0x0100 "/scripts/q3t_navicompass.sh"
    label    "Disable or enable compass in cockpit"
 
