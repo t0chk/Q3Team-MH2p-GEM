@@ -40,7 +40,6 @@ screen "0x0B2E Confirmation of the installation change" Adjustments
 script
    value    sys 1 0x0100 "/scripts/q3t_updategem.sh"
    label    "Update GEM from SD"
-
 script
    value    sys 1 0x0100 "/scripts/q3t_fullscreen_cpaa.sh"
    label    "Enable\disable fullscreen CarPlay AA"
