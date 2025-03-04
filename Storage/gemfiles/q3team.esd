@@ -47,7 +47,7 @@ script
 
 script
    value    sys 1 0x0100 "/scripts/q3t_navicompass.sh"
-   label    "Disable or enable compass in cockpit with active CarPlay&AA navi"
+   label    "Disable or enable compass in cockpit"
 
 script
    value    sys 1 0x0100 "/scripts/iamsoxorry.sh"
