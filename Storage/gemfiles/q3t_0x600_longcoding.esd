@@ -1,4 +1,4 @@
-screen 0x600_Coding Q3Team
+screen 0x600_Coding Development
     bitselect
         value per 0x5f22 0x0600
         label "Brand"
