@@ -1,0 +1,13 @@
+screen GracenoteDB_Modification Q3Team
+keyValue
+   value		String sys 0x00000000 0
+   label		"== GracenoteDB modification =="
+   poll		0 
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_backup_gracenotedb.sh"
+   label    "Backup Gracenote2 database to SD/USB"
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_update_gracenotedb.sh"
+   label    "Update Gracenote2 database from SD/USB"

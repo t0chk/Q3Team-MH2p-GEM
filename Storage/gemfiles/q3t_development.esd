@@ -1,0 +1,46 @@
+screen Development Q3Team
+keyValue
+  value			String sys 0x00000000 0
+  label			"== WARNING! You REALLY can brick you MMI here! =="
+  poll			0 
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_iamsoxorry.sh"
+  label    "Fix 1555 software version management error (ImSoXORy)"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_fullscreen_cp_test1.sh"
+  label    "Fast FullScreenAACPCL_test1 install From USB"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_fullscreen_cp_test2.sh"
+  label    "Fast FullScreenAACPCL_test2 install From USB"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_getslog.sh"
+  label    "Copy slog to MEDIA"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_getlog.sh"
+  label    "Copy q3t.log to MEDIA"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_getpidin.sh"
+  label    "Copy pidin to MEDIA"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_runcustom.sh"
+  label    "Run custom SCRIPT"
+
+script
+  value    sys 1 0x0100 "/scripts/activateDSITracer.sh"
+  label    "Activate DSITracer"
+
+script
+  value    sys 1 0x0100 "/scripts/deactivateDSITracer.sh"
+  label    "Deactivate DSITracer"
+
+script
+  value    sys 1 0x0100 "/scripts/performePersReset.sh"
+  label    "Reboot the unit (perform persistence reset)"
+   

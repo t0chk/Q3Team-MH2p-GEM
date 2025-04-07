@@ -1,0 +1,18 @@
+{
+  "Manifest": "1.0.0",
+  "Created-By": "mnfc 0.32",
+  "PackageVersion": "9999.0.0",
+  "PackageName": "ExceptionList.fec",
+  "PackageType": "module",
+  "HWIndex": [
+    {
+      "Index": "0",
+      "InstallerFile": "ExceptionList.fec_2017327-0730/0/installer.txt",
+      "ModuleVersion": "9999.0.0",
+      "CheckSumSize": 524288,
+      "CheckSum": [
+        "b09ac8cd7920275b002f31ced9a29ef156b0294e"
+      ]
+    }
+  ]
+}

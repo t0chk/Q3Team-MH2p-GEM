@@ -1,0 +1,34 @@
+{
+  "Manifest": "1.0.0",
+  "PackageName": "MH2p_SD_ModKit",
+  "PackageType": "main",
+  "Release": "MH2p SD ModKit by LawPaul",
+  "SaveReleaseName": false,
+  "PackageVersion": "2998.1.0",
+  "MUVersion": "2678",
+  "skipcheckregion": true,
+  "checkallupdates": true,
+  "Variant": [
+    "M2P-*-*-*-*-*-*"
+  ],
+  "Created-By": "mnfc 0.32",
+  "Includes": [
+    {
+      "PackageName": "ExceptionList",
+      "PackageVersion": "9999.0.0"
+    },
+    {
+      "PackageName": "MMX2P_POSTSCRIPT",
+      "PackageVersion": "1.0.0"
+    }
+  ],
+  "UpdateOrder": [
+    {
+      "Type": "sequential",
+      "Devices": [
+        "ExceptionList",
+        "MMX2P_POSTSCRIPT"
+      ]
+    }
+  ]
+}

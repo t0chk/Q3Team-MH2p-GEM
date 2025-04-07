@@ -1,0 +1,13 @@
+screen RSDB_Modification Q3Team
+keyValue
+    value	String sys 0x00000000 0
+    label	"== RSDB (radiostation logo database) modification =="
+    poll	0 
+
+script
+    value    sys 1 0x0100 "/scripts/q3t_backup_rsdb.sh"
+    label    "Backup RSDB (radiostation logo database) to SD/USB"
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_update_rsdb.sh"
+   label    "Update Radiostation logo database (RSDB) from SD/USB"

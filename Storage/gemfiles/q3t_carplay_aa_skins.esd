@@ -1,0 +1,13 @@
+screen Carplay_And_AA_Skins_Modification Q3Team
+keyValue
+    value	String sys 0x00000000 0
+    label	"== Carplay and Android Auto Skins modification =="
+    poll	0 
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_fullscreen_cpaa_sb.sh"
+   label    "Enable or disable fullscreen CarPlay AA with STATUS BAR"
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_fullscreen_cpaa.sh"
+   label    "Enable or disable fullscreen CarPlay AA"

@@ -1,0 +1,29 @@
+screen Q3Team Main
+keyValue
+   value		String sys 0x00000000 0
+	label		"== Q3Team GEM Mod =="
+	poll		0
+keyValue
+   value		String sys 0x00000000 0
+	label		"== ATTENTION: USE THIS SOFTWARE AT YOUR OWN RISK! =="
+	poll		0 
+keyValue
+   value		String sys 0x00000000 0
+	label		"== FOR MH2p UNITS ONLY!!! DO NOT PAY FOR THIS SOFTWARE!!! =="
+	poll		0 
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_backup.sh"
+   label    "Create current MMI state backup to SD/USB"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_getver.sh"
+  label    "Display MMI services version"
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_updategem.sh"
+   label    "Update GEM from SD/USB"
+
+script
+   value    sys 1 0x0100 "/scripts/performePersReset.sh"
+   label    "Reboot the unit"

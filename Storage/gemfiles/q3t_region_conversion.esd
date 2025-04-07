@@ -1,0 +1,9 @@
+screen Region_Conversion Q3Team
+keyValue
+   value	String sys 0x00000000 0
+   label	"== Region Conversion Helpers =="
+   poll		0
+
+script
+   value    sys 1 0x0100 "/scripts/q3t_langs.sh"
+   label    "Fix language datasets after firmware update NAR/KR/CN -> EU"

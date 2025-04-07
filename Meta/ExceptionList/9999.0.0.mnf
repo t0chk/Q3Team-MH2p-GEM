@@ -1,0 +1,22 @@
+{
+  "Manifest": "1.0.0",
+  "PackageName": "ExceptionList",
+  "PackageVersion": "9999.0.0",
+  "PackageType": "file",
+  "DeviceRelease": "9999",
+  "DeviceType": "MU",
+  "MainUnitDevice": true,
+  "DiagnosticAddress": "5F",
+  "Installer": [
+    {
+      "Type": "filecopy"
+    }
+  ],
+  "Created-By": "mnfc 0.32",
+  "Includes": [
+    {
+      "PackageName": "ExceptionList.fec",
+      "PackageVersion": "9999.0.0"
+    }
+  ]
+}
