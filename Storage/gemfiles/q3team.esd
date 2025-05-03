@@ -17,7 +17,7 @@ script
    label    "Create current MMI state backup to SD/USB"
 
 script
-  value    sys 1 0x0100 "/scripts/q3t_getver.sh"
+  value    sys 1 0x0100 "/scripts/q3t_check_coding.sh"
   label    "Check MMI variant, SW version, 5F coding and adaptations"
 
 script

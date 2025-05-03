@@ -7,3 +7,7 @@ keyValue
 script
    value    sys 1 0x0100 "/scripts/q3t_langs.sh"
    label    "Fix language datasets after firmware update NAR/KR/CN -> EU"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_iamsoxorry.sh"
+  label    "Fix 1555 software version management error (ImSoXORy)"

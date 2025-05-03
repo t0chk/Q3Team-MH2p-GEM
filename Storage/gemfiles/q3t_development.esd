@@ -5,8 +5,8 @@ keyValue
   poll			0 
 
 script
-  value    sys 1 0x0100 "/scripts/q3t_iamsoxorry.sh"
-  label    "Fix 1555 software version management error (ImSoXORy)"
+   value    sys 1 0x0100 "/scripts/q3t_change_variant.sh"
+   label    "Change unit variant to M2P-HM-NDL-EU-AU-MQB-AL"
 
 script
   value    sys 1 0x0100 "/scripts/q3t_fullscreen_cp_test1.sh"
