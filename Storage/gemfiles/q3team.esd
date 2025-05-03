@@ -18,6 +18,10 @@ script
 
 script
   value    sys 1 0x0100 "/scripts/q3t_getver.sh"
+  label    "Check MMI variant, SW version, 5F coding and adaptations"
+
+script
+  value    sys 1 0x0100 "/scripts/q3t_getver.sh"
   label    "Display MMI services version"
 
 script
