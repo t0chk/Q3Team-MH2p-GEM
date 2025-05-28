@@ -4,15 +4,75 @@
 
 projectstring=`cat /etc/project.txt`
 
+# prepare to mount /mnt/persist_new
+[[ ! -e "/mnt/persist_new" ]] && mount -t qnx6 /dev/mnanda0t177.5 /mnt/persist_new
+
+#prepare to mount /mnt/app
+[[ ! -e "/mnt/app" ]] && mount -t qnx6 /dev/mnanda0t177.1 /mnt/app
+
+#get vehicle inventory
+echo -n 'Vehicle Inventory: '
+
+if [[ -e /dev/shmem/vehicleinventory ]]; then
+    echo
+    cat /dev/shmem/vehicleinventory
+else
+    echo "No information available"
+fi
+
+#get VIN
+echo -n 'VIN: '
+if [[ -e /mnt/persist_new/cp/vin ]]; then
+    cat /mnt/persist_new/cp/vin
+else
+    echo "No information available"
+fi
+
+# get Variant
+echo -n 'Variant: '
+VARIANT=$(/mnt/app/armle/usr/bin/pc s:678364556:12 2>/dev/null)
+
+if [[ -z $VARIANT ]]; then
+   echo "No information available" 
+else
+    echo "$VARIANT"
+fi
+
+#get SW/HW version
+echo -n 'SW: '
+
+SW_VALUE=$(/mnt/app/armle/usr/bin/pc b:0x5F22:0xF187 | awk '{print $13}' 2>/dev/null)
+HW_VALUE=$(/mnt/app/armle/usr/bin/pc b:0x5F22:0xF191 | awk '{print $13}' 2>/dev/null)
+
+if [[ -z "$SW_VALUE" && -z "$HW_VALUE" ]]; then
+    echo "no info"
+else
+    echo -n "SW: "
+    if [[ -z "$SW_VALUE" ]]; then
+        echo -n "no info"
+    else
+        echo -n "$SW_VALUE"
+    fi
+
+    echo -n " HW: "
+    if [[ -z "$HW_VALUE" ]]; then
+        echo "no info"
+    else
+        echo "$HW_VALUE"
+    fi
+fi
+
 #get SKU / REV
 echo "SKU-REV: $(cat /dev/nvsku/sku)-$(cat /dev/nvsku/rev)"
 
 #get APP version
 echo -n 'APP: '
 head -1 /mnt/app/img_ver.txt | sed "s/^#//"
+
 #get Branch
 echo -n 'Branch:'
 cat /mnt/app/version_info.txt | grep Branch | cut -d '=' -f 2
+
 #get Changelist or Label
 CHANGELIST=`cat /mnt/app/version_info.txt | grep "Up to CL" | cut -d '=' -f 2`
 if [ ! -z $CHANGELIST ]; then
@@ -22,17 +82,25 @@ else
         echo -n 'Label:'
         cat /mnt/app/version_info.txt | grep "Label" | cut -d '=' -f 2
 fi
+
+#get img version
+echo 'IMG:'
+cat /mnt/app/img_ver.txt
+
 #get Framework
 echo -n 'Framework (MMX):'
 cat /mnt/app/version_info.txt | grep Framework | cut -d '=' -f 2
 echo -n 'GraphicsServices:'
 cat /mnt/app/version_info.txt | grep GraphicsServices | cut -d '=' -f 2
+
 #get J9 version
 echo -n 'J9:'
 cat /mnt/app/version_info.txt | grep J9 | cut -d '=' -f 2
+
 #get DSI
 echo -n 'DSI:'
 cat /mnt/app/version_info.txt | grep "DSI =" | cut -d '=' -f 2
+
 #get Radiodata
 echo -n 'RSDB:'
 if [[ -e /mnt/persist_new/swup/filecopy/versions/RSDB.ver ]]; then
@@ -40,14 +108,17 @@ if [[ -e /mnt/persist_new/swup/filecopy/versions/RSDB.ver ]]; then
 else
     echo "No information available"
 fi
+
 #get RdvController
 echo -n 'RdvController - Builddate/CL:'
 use -i /mnt/app/eso/bin/apps/rdv_controller | grep DATE | cut -d= -f 2
 use -i /mnt/app/eso/bin/apps/rdv_controller | grep CHANGELIST | cut -d= -f 2
+
 #get EsoPosProvider
 echo -n 'EsoPosProvider - Builddate/CL:'
 use -i /mnt/app/eso/bin/apps/esoposprovider | grep DATE | cut -d= -f 2
 use -i /mnt/app/eso/bin/apps/esoposprovider | grep CHANGELIST | cut -d= -f 2
+
 #get Navigation
 echo -n 'Navigation: '
 if [ -d /mnt/app/navigation/aw_tts_nav ] ; then
@@ -55,6 +126,7 @@ if [ -d /mnt/app/navigation/aw_tts_nav ] ; then
 else
   use -i /mnt/app/navigation/navStartup | grep ^VERSION | cut -d= -f 2
 fi
+
 #get Navigation database
 REGION=`cat /mnt/app/version_info.txt | grep "Region" | cut -d '=' -f 2`
 if [[ "$REGION" != " AS" ]] && [[ "$REGION" != " CT" ]] && [[ "$REGION" != " KR" ]] && [[ -e /mnt/navdb/database/ndscache/package.db ]]; then
@@ -66,6 +138,7 @@ elif [[ -e /mnt/navdb/database/ndscache/map_version.txt ]]; then
 	cat /mnt/navdb/database/ndscache/map_version.txt
 	echo ''
 fi
+
 #get Asia Navigation database
 case `head -1 /mnt/app/img_ver.txt` # find out brand
 in
@@ -74,6 +147,7 @@ in
   *_MMX2P_PAG_*) THEBRAND=PO ;;
   *_MMX2P_LB_*) THEBRAND=LB ;;
 esac
+
 if [[ -e /mnt/navdb/db/VERSION/SR_${THEBRAND}/DBInfo.txt ]]; then # location of DBInfo.txt in new DB structure
         echo -n 'NavDB: '
         cat /mnt/navdb/db/VERSION/SR_${THEBRAND}/DBInfo.txt | grep DBName | cut -d= -f 2 | sed "s/\"//g"
@@ -84,6 +158,7 @@ elif [[ -e /mnt/navdb/VERSION/SR_${THEBRAND}/DBInfo.txt ]]; then # location of D
         echo -n 'NavDB: '
         cat /mnt/navdb/VERSION/SR_${THEBRAND}/DBInfo.txt | grep DBName | cut -d= -f 2 | sed "s/\"//g"
 fi
+
 #get Navigation styles
 if [[ -d /mnt/app/navigation/resources/app ]]; then
 	echo '-----------'

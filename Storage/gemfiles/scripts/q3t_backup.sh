@@ -38,6 +38,9 @@ s="Creating backup...";echo $s;echo $s >> $MODPATH/backup/device_info.txt
 echo "Variant: $(/mnt/app/armle/usr/bin/pc s:678364556:12 2>/dev/null)" >> $MODPATH/backup/device_info.txt
 echo "SW: $(/mnt/app/armle/usr/bin/pc b:0x5F22:0xF187 | awk '{print $13}' 2>/dev/null) HW: $(/mnt/app/armle/usr/bin/pc b:0x5F22:0xF191 | awk '{print $13}' 2>/dev/null)" >> $MODPATH/backup/device_info.txt
 
+cat /dev/nvsku/uid >> $MODPATH/backup/device_info.txt
+cat /dev/shmem/vehicleinventory >> $MODPATH/backup/device_info.txt
+
 echo "5F coding: $(/mnt/app/armle/usr/bin/pc b:0x5F22:0x600 | awk -F "  " '{ORS="";gsub(/ /,"",$2);print $2}' 2>/dev/null)" >> $MODPATH/backup/device_info.txt
 echo "5F adaptations: $(/mnt/app/armle/usr/bin/pc b:0x5F22:0x22AD | awk -F "  " '{ORS="";gsub(/ /,"",$2);print $2}' 2>/dev/null)" >> $MODPATH/backup/device_info.txt
 
@@ -65,4 +68,5 @@ s="Done.";echo $s;echo $s >> $MODPATH/backup/device_info.txt
 [[ ! -e $MODPATH/crashlogs ]] && mkdir $MODPATH/crashlogs
 [[ ! -e $MODPATH/crashlogs ]] && echo "Error: cannot create $MODPATH/crashlogs folder!" && exit 1
 
+echo "Copying crashlogs to $MODPATH/crashlogs/ ..."
 cp -rfV /mnt/crashlogs/ $MODPATH/crashlogs/

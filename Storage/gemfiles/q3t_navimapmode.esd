@@ -1,0 +1,57 @@
+screen "Navigation Map Mode 0x0B5A" Development
+
+bitselect
+    value per 0x5f22 0x0B5A
+    label "Navigation map - Transmission type"
+    range 0.0 0.7
+    entry "Not active" 0
+    entry "MOST-High" 1
+    entry "MOST-Streaming" 2
+    entry "LVDS Map FPK" 3
+    entry "LVDS Map MMI Kombi" 4
+    entry "NOT-DEFINED" 5
+
+bitselect
+    value per 0x5f22 0x0B5A
+    label "Navigation map - Compression type"
+    range 1.0 1.7
+    entry "RLE" 0
+    entry "H264" 1
+    entry "NOT-DEFINED" 2
+
+bitselect
+    value per 0x5f22 0x0B5A
+    label "Navigation map - Resolution"
+    range 2.0 2.7
+    entry "Resolution 1" 0
+    entry "Resolution 2" 1
+    entry "Resolution 3" 2
+    entry "NOT-DEFINED" 3
+
+bitselect
+    value per 0x5f22 0x0B5A
+    label "Crossroad map - Transmission type"
+    range 3.0 3.7
+    entry "Not active" 0
+    entry "MOST-High" 1
+    entry "MOST-Streaming" 2
+    entry "LVDS Karte FPK" 3
+    entry "LVDS Karte MMI Kombi" 4
+    entry "NOT-DEFINED" 5
+
+bitselect
+    value per 0x5f22 0x0B5A
+    label "Crossroad map - Compression type"
+    range 4.0 4.7
+    entry "RLE" 0
+    entry "H264" 1
+    entry "NOT-DEFINED" 2
+    
+bitselect
+    value per 0x5f22 0x0B5A
+    label "Crossroad map - Resolution"
+    range 5.0 5.7
+    entry "Resolution 1" 0
+    entry "Resolution 2" 1
+    entry "Resolution 3" 2
+    entry "NOT-DEFINED" 3

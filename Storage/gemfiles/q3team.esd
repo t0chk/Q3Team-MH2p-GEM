@@ -21,6 +21,10 @@ script
   label    "Display MMI services version"
 
 script
+   value    sys 1 0x0100 "/scripts/q3t_report.sh"
+   label    "Report system information to SD/USB"
+
+script
    value    sys 1 0x0100 "/scripts/q3t_updategem.sh"
    label    "Update GEM from SD/USB"
 

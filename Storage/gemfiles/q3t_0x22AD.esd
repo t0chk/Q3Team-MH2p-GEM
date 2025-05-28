@@ -1,0 +1,563 @@
+screen "0x22AD Vehicle configuration" Development
+    bitselect
+        value per 0x5f22 0x22AD
+        label "VZAPro"
+        range 0.0 0.0
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online POI"
+        range 0.1 0.1
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online POI Voice"
+        range 0.2 0.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online portal (Browser Services)"
+        range 0.3 0.3
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online Navi (Google Earth)"
+        range 0.4 0.4
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online Street View"
+        range 0.5 0.5
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "WIFI Hotspot"
+        range 0.6 0.6
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "MyAUDI (Address import from Audi portal)"
+        range 0.7 0.7
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Picture Navi"
+        range 1.0 1.0
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online Dictation"
+        range 1.1 1.1
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Remote HMI"
+        range 1.2 1.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Advanced Range Display (Spiegelei Karte)"
+        range 1.3 1.3
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Gracenote Online Cover art"
+        range 1.4 1.4
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Gracenote Online Other"
+        range 1.5 1.5
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Gracenote Local Cover art"
+        range 1.6 1.6
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Gracenote Local Other"
+        range 1.7 1.7
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "UPnP"
+        range 2.0 2.0
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "OPS display in the Kombi"
+        range 2.1 2.1
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Joker key 1"
+        range 2.2 2.3
+        entry "unavailable" 0
+        entry "available on the left" 1
+        entry "available on the right" 2
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Joker key 2"
+        range 2.4 2.5
+        entry "unavailable" 0
+        entry "available on the left" 1
+        entry "available on the right" 2
+    bitselect
+        value per 0x5f22 0x22AD
+        label "LTE Module"
+        range 2.6 2.6
+        entry "deactivated" 1
+        entry "activated" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Support 2nd Phone"
+        range 2.7 2.7
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Support of threeway calling"
+        range 3.0 3.0
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "DTMF without active call"
+        range 3.1 3.1
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Support for response and hold"
+        range 3.2 3.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "SIM card Mode Switch"
+        range 3.3 3.3
+        entry "display" 1
+        entry "do not display" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Telephone Module Operation Mode"
+        range 3.4 3.4
+        entry "voice and data" 0
+        entry "data only" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "PSD Protocol-Version"
+        range 4.0 4.7
+        entry "Protocol version 1.5" 0
+        entry "Protocol version 1.4" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "RVC Video input"
+        range 5.0 5.1
+        entry "FBAS" 0
+        entry "LVDS" 1
+        entry "FBAS scaling 2" 2
+    bitselect
+        value per 0x5f22 0x22AD
+        label "RVClow Black Screen velocity threshold"
+        range 5.2 5.2
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "RVClow FailSafe"
+        range 5.3 5.3
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "RVClow Black Screen trunk open"
+        range 5.4 5.4
+        entry "deactivated" 0
+        entry "activated" 1
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Reserved"
+        range 5.5 5.7
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Station Logo DB Mode"
+        range 6.0 6.7
+    bitselect
+        value per 0x5f22 0x22AD
+        label "TPEG availability"
+        range 7.0 7.0
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "VZO (hdlivemapmodule)"
+        range 7.1 7.1
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "LGI"
+        range 7.2 7.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "ProbeCar VZO"
+        range 7.3 7.3
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online Media"
+        range 7.4 7.4
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "ProbeCar LGI"
+        range 7.5 7.5
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Baidu CarLife"
+        range 7.6 7.6
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Google GAL"
+        range 7.7 7.7
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Apple DIO"
+        range 8.0 8.0
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Update Over The Air (UOTA)"
+        range 8.1 8.1
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "WLAN Client mode"
+        range 8.2 8.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "RSE software component deactivation"
+        range 8.3 8.3
+        entry "deactivated" 1
+        entry "activated" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Smartphone Interface for RHmi"
+        range 8.4 8.4
+        entry "deactivated" 1
+        entry "activated" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Mirror Link"
+        range 8.5 8.5
+        entry "Not active" 0
+        entry "Active" 1
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Reserved"
+        range 8.6 8.7
+    bitselect
+        value per 0x5f22 0x22AD
+        label "SDS Region Flag"
+        range 9.0 9.7
+        entry "keine Region" 0
+        entry "NAR_EU" 1
+        entry "NAR_NAR" 2
+        entry "NAR_ROW_SOUTHAMERICA" 3
+        entry "NAR_ASIA_KOREA" 4
+        entry "NAR_ASIA_CHINA" 5
+        entry "NAR_ASIA_JAPAN" 6
+        entry "NAR_ROW_ASIA" 7
+        entry "NAR_ROW_AUSTRALIA" 8
+        entry "NAR_ROW_SOUTHAFRICA" 9
+        entry "NAR_ROW_NEAREAST" 10
+        entry "Reserved_do_not_use" 11
+        entry "NAR_ROW_MIDDLEEAST" 12
+        entry "Reserved_do_not_use" 13
+        entry "NAR_ROW_INDIA" 14
+        entry "NAR_ROW_ISRAEL" 15
+        entry "NAR_ASIA_TAIWAN" 16
+        entry "NAR_ROW_CHILE" 17
+        entry "Reserved_do_not_use" 18
+        entry "Reserved_do_not_use" 19
+    bitselect
+        value per 0x5f22 0x22AD
+        label "SD Slot Deactivation"
+        range 10.0 10.1
+        entry "alle SD-Slots active" 0
+        entry "SD1 inactive" 1
+        entry "SD2 inactive" 2
+    bitselect
+        value per 0x5f22 0x22AD
+        label "MAP SMS support"
+        range 10.2 10.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "MAP Email support"
+        range 10.3 10.3
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "MAP InstantMessaging support"
+        range 10.4 10.4
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "SIM data only SMS support"
+        range 10.5 10.5
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "eSIM data only SMS support"
+        range 10.6 10.6
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Allow Message Editing"
+        range 10.7 10.7
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Vehicle Ready Sound"
+        range 11.0 11.0
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Vehicle Leaving Sound"
+        range 11.1 11.1
+        entry "not activated" 0
+        entry "activated" 1
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Map Style"
+        range 11.2 11.7
+    bitselect
+        value per 0x5f22 0x22AD
+        label "MirrorLink Country Code"
+        range 12.0 12.6
+        entry "MIB_EU" 0
+        entry "MIB_NAR" 1
+        entry "MIB_JP" 2
+        entry "MIB_CHN" 3
+        entry "MIB_KOR" 4
+        entry "MIB_TWN" 5
+        entry "MIB_RdW/RoW" 6
+        entry "MIB_HK" 7
+        entry "MIB_MO" 8
+        entry "other" 9
+        entry "Reserved" 127
+        entry "Value" 16
+        entry "Automatic" 126
+    bitselect
+        value per 0x5f22 0x22AD
+        label "MirrorLink RGB Preference"
+        range 12.7 12.7
+        entry "RGB565" 0
+        entry "RGB888" 1
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Climate variant"
+        range 13.0 13.7
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Privacy With PIN Request"
+        range 14.0 14.7
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Phone HMI Privacy"
+        range 15.0 15.7
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Hybrid Radio additional online data"
+        range 16.0 16.0
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Hybrid Radio Range Extender"
+        range 16.1 16.4
+        entry "deactivated" 0
+        entry "manual only" 1
+        entry "automatic without time scaling" 2
+        entry "automatic with time scaling" 3
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Online Radio"
+        range 16.5 16.7
+        entry "deactivated" 0
+        entry "native HMI only" 1
+        entry "native HMI+HMI SDK" 2
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Reserved"
+        range 17.0 17.0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Media Control"
+        range 17.1 17.1
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "SCON Telefonie"
+        range 17.2 17.2
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "VoLTE"
+        range 17.3 17.3
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Show VoLTE HMI Switch"
+        range 17.4 17.4
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "WLAN 5Ghz"
+        range 17.5 17.5
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Unblock functions while piloted driving"
+        range 17.6 17.6
+        entry "blocked" 0
+        entry "unblocked" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Block HMI-function P/EPB"
+        range 17.7 17.7
+        entry "blocked" 0
+        entry "unblocked" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Popup if GPS services in use"
+        range 18.0 18.0
+        entry "deactivated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Piloted parking"
+        range 18.1 18.1
+        entry "deactivated" 0
+        entry "activated" 1
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Reserved"
+        range 18.2 20.1
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Baidu CarLife iOS"
+        range 20.2 20.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Tencent MyCar Canceling Share Location"
+        range 20.3 20.3
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Update Over The Air 2 (UOTA_2)"
+        range 20.4 20.4
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "FoD"
+        range 20.5 20.5
+        entry "SWaP" 0
+        entry "FoD" 1
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Reserved"
+        range 20.6 20.7
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Perso-V-Threshold"
+        range 21.0 21.7
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Perso-V-Threshold Hysteresis"
+        range 22.0 22.7
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Baidu CarLife Wireless"
+        range 23.0 23.0
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Baidu CarLife iOS Wireless"
+        range 23.1 23.1
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Google GAL Wireless"
+        range 23.2 23.2
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Apple DIO Wireless"
+        range 23.3 23.3
+        entry "Active" 1
+        entry "Not active" 0
+    bitselect
+        value per 0x5f22 0x22AD
+        label "AliBox"
+        range 23.4 23.4
+        entry "Active" 1
+        entry "Not active" 0
+    bitslider
+        value per 0x5f22 0x22AD
+        label "Reserved"
+        range 23.5 29.7

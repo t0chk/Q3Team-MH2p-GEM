@@ -40,6 +40,10 @@ if [[ ! -e "/mnt/app" ]]; then
 	"$IPL_BASE_DIR/bin/slogprint" "[q3team] Mounting /mnt/app"
 fi
 
+if [[ -e "/mnt/app/eso/bin/apps/dataconnectionmanager" ]]; then
+	/mnt/app/eso/bin/apps/dataconnectionmanager &
+fi
+
 "$IPL_BASE_DIR/bin/slogprint" "[q3team] Set flags"
 
 # Set developer mode

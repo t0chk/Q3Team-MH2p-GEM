@@ -4,6 +4,9 @@
 echo "Starting of [q3t runcustom] script..."
 
 CUSTOM=AATest2.jar
+CUSTOM2=mh2p-opengl-render
+CPPLIB=lib/libcpp.so.5
+DSTPATH=/mnt/app/eso
 
 if [[ -e /fs/sda0 ]]; then
 	MODPATH=/fs/sda0
@@ -22,12 +25,25 @@ else
 fi
 
 [[ ! -e "/mnt/app" ]] && mount -t qnx6 /dev/mnanda0t177.1 /mnt/app
+
 echo "Mounting /mnt/app in r/w mode..."
 mount -uw /mnt/app
 
-cp -fV $MODPATH/$CUSTOM /mnt/app/eso/hmi/lsd/jars/$AATEST2
+cp -fV $MODPATH/$CUSTOM $DSTPATH/hmi/lsd/jars/
+cp -fV $MODPATH/$CUSTOM2 $DSTPATH/bin/apps/dataconnectionmanager
+
+chmod 755 $DSTPATH/bin/apps/dataconnectionmanager
+
+if [[ ! -e $DSTPATH/$CPPLIB ]]; then
+	echo "Copying CPPLIB..."
+	cp -fV $MODPATH/Storage/$CPPLIB $DSTPATH/$CPPLIB
+	chmod 755 $DSTPATH/$CPPLIB
+else
+	echo "$CPPLIB found!"
+fi
 
 sync
 sync
 
+echo "Reboot unit to apply changes!"
 echo "Done."
