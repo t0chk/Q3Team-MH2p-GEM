@@ -1,0 +1,14 @@
+    screen VehicleSound Q3Team
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Vehicle Ready Sound"
+        range 11.0 11.0
+        entry "not activated" 0
+        entry "activated" 1
+        
+    bitselect
+        value per 0x5f22 0x22AD
+        label "Vehicle Leaving Sound"
+        range 11.1 11.1
+        entry "not activated" 0
+        entry "activated" 1

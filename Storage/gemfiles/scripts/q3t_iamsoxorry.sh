@@ -1,11 +1,11 @@
 #!/bin/ksh
 # Copyright (c) 2025 https://t.me/tochk https://t.me/q3f3chat
 
-DIAG_PATH=/mnt/persist_new/swup
-
 echo "Starting of [iamsoxorry] script..."
 
 [[ ! -e "/mnt/persist_new" ]] && mount -t qnx6 /dev/mnanda0t177.5 /mnt/persist_new
+
+DIAG_PATH=/mnt/persist_new/swup
 
 rm -vf $DIAG_PATH/diagnose.info
 touch $DIAG_PATH/diagnose.info

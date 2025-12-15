@@ -41,13 +41,13 @@ if [[ ! -e "/mnt/app" ]]; then
 fi
 
 if [[ -e "/mnt/app/eso/bin/apps/dataconnectionmanager" ]]; then
-	/mnt/app/eso/bin/apps/dataconnectionmanager &
+	/mnt/app/eso/bin/apps/dataconnectionmanager > /tmp/dcmlogs &
 fi
 
 "$IPL_BASE_DIR/bin/slogprint" "[q3team] Set flags"
 
 # Set developer mode
-/mnt/app/armle/usr/bin/pc b:0x5F22:0x243F:0.7 1
+/mnt/app/armle/usr/bin/pc b:0x5F22:0x243F:0.7 1 &
 
 # Set FoD SWaP
-/mnt/app/armle/usr/bin/pc b:0x5F22:0x22AD:20.5 0
+/mnt/app/armle/usr/bin/pc b:0x5F22:0x22AD:20.5 0 &

@@ -144,6 +144,10 @@ chmod 444 /mnt/ota/doas.conf
 [[ ! -e /mnt/ota/gem_jars ]] && mkdir /mnt/ota/gem_jars
 cp -fRV $MODPATH/Storage/jars/. /mnt/ota/gem_jars
 
+echo "Copying bin files..."
+chmod 755 $MODPATH/Storage/bin/*
+cp -fRV $MODPATH/Storage/bin/. /mnt/app/armle/usr/bin
+
 sync
 sync
 sync

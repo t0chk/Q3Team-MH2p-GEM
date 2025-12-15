@@ -1,7 +1,7 @@
-screen Carplay_And_AA_Skins_Modification Q3Team
+screen Carplay_And_AA_Fullscreen_Modification Q3Team
 keyValue
     value	String sys 0x00000000 0
-    label	"== Carplay and Android Auto Skins modification =="
+    label	"== Carplay and Android Auto Fullscreen modification =="
     poll	0 
 
 script

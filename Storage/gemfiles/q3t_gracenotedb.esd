@@ -1,4 +1,4 @@
-screen GracenoteDB_Modification Q3Team
+screen GracenoteDB Q3Team
 keyValue
    value		String sys 0x00000000 0
    label		"== GracenoteDB modification =="

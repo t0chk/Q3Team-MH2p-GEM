@@ -1,4 +1,4 @@
-screen RSDB_Modification Q3Team
+screen RSDB Q3Team
 keyValue
     value	String sys 0x00000000 0
     label	"== RSDB (radiostation logo database) modification =="

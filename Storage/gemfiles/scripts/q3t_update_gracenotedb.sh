@@ -20,6 +20,7 @@ else
 fi
 
 [[ ! -e "/mnt/gracenotedb" ]] && mount -t qnx6 /dev/mnanda0t177.9 /mnt/gracenotedb
+
 if [[ -e $MODPATH/gracenotedb ]]; then
     [[ -e "/mnt/gracenotedb/database/rev.txt" ]] && echo "Revision of GracenoteDB before update: $(cat /mnt/gracenotedb/database/rev.txt)"
 

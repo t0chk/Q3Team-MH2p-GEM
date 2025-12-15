@@ -1,12 +1,14 @@
 screen Q3Team Main
 keyValue
    value		String sys 0x00000000 0
-	label		"== Q3Team GEM Mod =="
+	label		"== Q3Team GEM [20251019.1]=="
 	poll		0
+
 keyValue
    value		String sys 0x00000000 0
 	label		"== ATTENTION: USE THIS SOFTWARE AT YOUR OWN RISK! =="
 	poll		0 
+
 keyValue
    value		String sys 0x00000000 0
 	label		"== FOR MH2p UNITS ONLY!!! DO NOT PAY FOR THIS SOFTWARE!!! =="
@@ -15,14 +17,6 @@ keyValue
 script
    value    sys 1 0x0100 "/scripts/q3t_backup.sh"
    label    "Create current MMI state backup to SD/USB"
-
-script
-  value    sys 1 0x0100 "/scripts/q3t_getver.sh"
-  label    "Display MMI services version"
-
-script
-   value    sys 1 0x0100 "/scripts/q3t_report.sh"
-   label    "Report system information to SD/USB"
 
 script
    value    sys 1 0x0100 "/scripts/q3t_updategem.sh"
