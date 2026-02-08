@@ -1390,7 +1390,114 @@ screen "0x22AD Vehicle configuration" "Development functions"
         label "Reserved"
         range 23.5 29.7
 
-screen "Mirror app actions"  "Development functions"
+screen "External Near-field Interface (ENI)" "Development functions"
+    bitselect
+        value per 0x5f22 0x0B3D
+        label "External Near-field Interface (ENI) (0x37) Availability"
+        range 55.0 55.1
+        entry "not activated" 0
+        entry "activated" 1
+    bitselect
+        value per 0x5f22 0x0B3D
+        label "External Near-field Interface (ENI) (0x37) Bus assignment"
+        range 55.2 55.7
+        entry "CAN Comfort" 0
+        entry "CAN Driving" 1
+        entry "CAN Infotainment" 2
+        entry "CAN Extended" 3
+        entry "CAN Chassis" 4
+        entry "Flexray" 5
+        entry "Terminal 15" 6
+        entry "Cluster 1" 7
+        entry "Cluster 2" 8
+        entry "Cluster 3" 9
+        entry "Cluster 4" 10
+        entry "Cluster 5" 11
+        entry "Cluster 6" 12
+        entry "Cluster 7" 13
+        entry "Cluster 8" 14
+        entry "Cluster 9" 15
+        entry "Cluster 10" 16
+        entry "Cluster 11" 17
+        entry "Cluster 12" 18
+        entry "Cluster 13" 19
+        entry "Cluster 14" 20
+        entry "Cluster 15" 21
+        entry "Cluster 16" 22
+        entry "Cluster 17" 23
+        entry "Cluster 18" 24
+        entry "Cluster 19" 25
+        entry "Cluster 20" 26
+        entry "Cluster 21" 27
+        entry "Cluster 22" 28
+        entry "Cluster 23" 29
+        entry "Cluster 24" 30
+        entry "CAN Hybrid" 31
+        entry "CAN MIB" 32
+        entry "CAN Kombi" 33
+        entry "CAN Comfort 2" 34
+        entry "not activated" 63
+    bitselect
+        value per 0x5f22 0x0B3C
+        label "External Near-field Interface(ENI): Menu Display"
+        range 51.0 51.0
+        entry "No" 0
+        entry "Yes" 1
+    bitselect
+        value per 0x5f22 0x0B3C
+        label "External Near-field Interface(ENI): Operation also possible with terminal 15 = Ign.Off"
+        range 51.1 51.1
+        entry "No" 0
+        entry "Yes" 1
+    bitselect
+        value per 0x5f22 0x0B3C
+        label "External Near-field Interface(ENI): Operation possible at v > V_Threshold_high"
+        range 51.2 51.2
+        entry "No" 0
+        entry "Yes" 1
+    bitselect
+        value per 0x5f22 0x0B3C
+        label "External Near-field Interface(ENI): Operation only possible when stationary"
+        range 51.3 51.3
+        entry "No" 0
+        entry "Yes" 1
+    bitselect
+        value per 0x5f22 0x0B3C
+        label "External Near-field Interface(ENI): Operation only possible after displaying a disclaimer"
+        range 51.4 51.4
+        entry "No" 0
+        entry "Yes" 1
+
+screen "0x0D22 Customer Setting Privacy" "Development functions"
+    bitselect
+        value per 0x5f22 0x0D22
+        label "Services"
+        range 0.0 0.7
+        entry "Group tracking data selected" 0
+        entry "Group location data selected" 1
+        entry "Group Personal data selected" 2
+        entry "Maximum privacy in Shape 2" 3
+        entry "Maximum privacy in Shape 1" 4
+    bitselect
+        value per 0x5f22 0x0D22
+        label "Data collector"
+        range 1.0 1.7
+        entry "Data collector not activated" 0
+        entry "Only campaigns based on balancing interests" 1
+        entry "Only campaigns based on consent" 2
+        entry "Data collector active" 3
+    bitselect
+        value per 0x5f22 0x0D22
+        label "Popup for privacy info on startup"
+        range 2.0 2.0
+        entry "do not show" 0
+        entry "show" 1
+    bitslider
+        value per 0x5f22 0x0D22
+        label "Reserved"
+        range 2.1 2.7
+
+screen "Mirror app actions" "Development functions"
 
     script
         value    sys 1 0x0100 "/scripts/q3t_backupma.sh"
@@ -1464,5 +1571,79 @@ screen "Other functions" "Development functions"
     script
         value    sys 1 0x0100 "/scripts/performePersReset.sh"
         label    "Reboot the unit (perform persistence reset)"
+
+screen "Navigation" "Development functions"
+    keyValue
+        value	String sys 0x00000000 0
+        label	"== Navigation patcing =="
+        poll		0
+
+    bitselect
+        value per 0x5f22 0x0600
+        label "0x22AD|24.2 Navigation function"
+        range 24.2 24.2
+        entry "not activated" 0
+        entry "activated" 1
+        
+    bitselect
+        value per 0x5f22 0x0600
+        label "0x22AD|3.0 3.7 Country variant Function Navigation"
+        range 3.0 3.7
+        entry "No" 0
+        entry "EU" 1
+        entry "NAR" 2
+        entry "MSA" 3
+        entry "Korea" 4
+        entry "China" 5
+        entry "Japan" 6
+        entry "AsiaPacific" 7
+        entry "Australia" 8
+        entry "South Afrika" 9
+        entry "NEAST" 10
+        entry "NMAfrica" 11
+        entry "MEAST" 12
+        entry "CentralAsia" 13
+        entry "India" 14
+        entry "Israel" 15
+        entry "Taiwan" 16
+        entry "MSA 2" 17
+        entry "China 2" 18
+        entry "China 3" 19
+        entry "reserved" 20
+
+    bitselect
+        value per 0x5f22 0x22AD
+        label "0x22AD|9.0 9.7 SDS Region Flag"
+        range 9.0 9.7
+        entry "keine Region" 0
+        entry "NAR_EU" 1
+        entry "NAR_NAR" 2
+        entry "NAR_ROW_SOUTHAMERICA" 3
+        entry "NAR_ASIA_KOREA" 4
+        entry "NAR_ASIA_CHINA" 5
+        entry "NAR_ASIA_JAPAN" 6
+        entry "NAR_ROW_ASIA" 7
+        entry "NAR_ROW_AUSTRALIA" 8
+        entry "NAR_ROW_SOUTHAFRICA" 9
+        entry "NAR_ROW_NEAREAST" 10
+        entry "Reserved_do_not_use" 11
+        entry "NAR_ROW_MIDDLEEAST" 12
+        entry "Reserved_do_not_use" 13
+        entry "NAR_ROW_INDIA" 14
+        entry "NAR_ROW_ISRAEL" 15
+        entry "NAR_ASIA_TAIWAN" 16
+        entry "NAR_ROW_CHILE" 17
+        entry "Reserved_do_not_use" 18
+        entry "Reserved_do_not_use" 19
+
+    script
+        value    sys 1 0x0100 "/scripts/q3t_formatnavdb.sh"
+        label    "Format NavDB" 
+    
+    script
+        value    sys 1 0x0100 "/scripts/q3t_coding_nochina.sh"
+        label    "Navigation patch #1 nochina"
+
+    script
         value    sys 1 0x0100 "/scripts/q3t_update_exlist.sh"
         label    "Navigation patch #2 exlist"
